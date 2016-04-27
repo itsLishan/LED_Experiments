@@ -20,9 +20,9 @@ port.on('open', function () { //on "open" call this function (the constructor op
 	io.on('connection', function(socket){ //"on connection, call this function"
 		console.log('a user connected');
 
-		connectionID++;
-
 		var currId = connectionID;
+
+		connectionID++;
 
 		//when that browser (socket) emits "hi", this function runs
 		socket.on('hi', function(msg){ //on "hi", call this function
