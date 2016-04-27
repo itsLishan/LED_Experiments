@@ -1,0 +1,25 @@
+<html>
+<head>
+
+	<title></title>
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+</head>
+<body>
+
+	<!-- <button id='move-light'>Move Light</button> -->
+
+	<script type="text/javascript">
+	var socket = io();
+	function logButtonClick (){
+		console.log("i'm writing things");
+		socket.emit('hi', 'this is my message');
+	}
+	var lightButton = document.body;
+	lightButton.addEventListener("click", logButtonClick);
+	lightButton.addEventListener("touchstart", logButtonClick);
+
+	</script>
+
+</body>
+</html>
