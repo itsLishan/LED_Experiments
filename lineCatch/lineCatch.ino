@@ -69,21 +69,24 @@ int gameLoop() {
 
   if (Serial.available() > 0) {
 
+
     // if (true){
     // read the incoming byte:
     byte incomingByte = Serial.read();
     // byte incomingByte = 1;
 
-    if (abs(linePosition - userPositions[incomingByte]) <= (radius + userRadius)) {
-      currentColor = userColors[incomingByte];
-      radius += radiusgrowthRate;
-      speed  += speedGrowthRate;
-    }
+    if (incomingByte < NUM_USERS){
 
-    else {
-      setPositionColor(userPositions[incomingByte], strip.Color(255, 0, 0));
-    }
+      if (abs(linePosition - userPositions[incomingByte]) <= (radius + userRadius)) {
+        currentColor = userColors[incomingByte];
+        radius += radiusgrowthRate;
+        speed  += speedGrowthRate;
+      }
 
+      else {
+        setPositionColor(userPositions[incomingByte], strip.Color(255, 0, 0));
+      }
+    }
   }
 
 
